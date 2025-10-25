@@ -50,7 +50,7 @@ class MassRemove extends BackendAction implements HttpPostActionInterface
                 foreach ($ids as $id) {
                     $model = $this->ruleFactory->create()->load($id);
                     if ($model->getId()) {
-                        $model->setIsRemove(1)->save();
+                        $model->delete();
                     }
                 }
                 $this->messageManager->addSuccessMessage(__('Total of %1 record(s) have been removed.', count($ids)));

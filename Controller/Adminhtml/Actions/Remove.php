@@ -50,7 +50,7 @@ class Remove extends Notification implements HttpGetActionInterface
             }
 
             try {
-                $model->setIsRemove(1)->save();
+                $model->delete();
                 $this->messageManager->addSuccessMessage(__('The message has been removed.'));
             } catch (\Magento\Framework\Exception\LocalizedException $e) {
                 $this->messageManager->addErrorMessage($e->getMessage());
